@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Smash Ask</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="email">Email:</string>
+    <string name="senha">Senha:</string>
+    <string name="entar">Entrar</string>
+    <string name="criarConta">Criar Conta</string>
+    <string name="loginFacebook">Logar com Facebook</string>
+
+
+    <string name="pergunta">Para assegurar a autenticidade das interações entre seu aplicativo e o Facebook, você deverá nos enviar o hash de chave para Android do seu ambiente de desenvolvimento. Se o seu aplicativo já tiver sido publicado, você deverá adicionar também seu hash de chave de lançamento. </string>
+    <string name="botaoA">A)</string>
+    <string name="botaoB">B)</string>
+    <string name="botaoC">C)</string>
+    <string name="botaoD">D)</string>
+    <string name="respostaA">resposta A</string>
+    <string name="respostaB">resposta B</string>
+    <string name="respostaC">resposta C</string>
+    <string name="respostaD">resposta D</string>
+
+
+
+    <string name="botaoEntrarCodigo">Verificar Código</string>
+
+
 </resources>
