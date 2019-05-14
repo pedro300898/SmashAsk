@@ -6,7 +6,21 @@
     <string name="senha">Senha:</string>
     <string name="entar">Entrar</string>
     <string name="criarConta">Criar Conta</string>
-    <string name="loginFacebook">Logar com Facebook</string>
+    <string name="Smash">SMASH</string>
+    <string name="pref_Key">dados</string>
+
+
+    <string name="insertCodgo">Códgo da Lista</string>
+    <string name="aleatoria">Lista Aleatoria</string>
+
+    <string name="smashS">Smash Study</string>
+    <string name="smashT">Smash Test</string>
+
+    <string name="perguntaN">Pergunta 1/20</string>
+    <string name="timer">60s</string>
+
+
+
 
 
     <string name="pergunta">Para assegurar a autenticidade das interações entre seu aplicativo e o Facebook, você deverá nos enviar o hash de chave para Android do seu ambiente de desenvolvimento. Se o seu aplicativo já tiver sido publicado, você deverá adicionar também seu hash de chave de lançamento. </string>
