@@ -1,9 +1,11 @@
 package com.example.smashask;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -119,6 +121,22 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.close();
 
         return pergunta;
+    }
+
+    public void inserirPerguntaBD(Pergunta p){
+        Log.d("BANCO", "Método inserir invocado");
+        ContentValues valores = new ContentValues();
+        valores.put("pergunta_Texto", p.getPergunta());
+        valores.put("resposta_A", p.getRespostaA());
+        valores.put("resposta_B", p.getRespostaB());
+        valores.put("resposta_C", p.getRespostaC());
+        valores.put("resposta_D", p.getRespostaD());
+        valores.put("tempo_teste", 0);
+        valores.put("timer", p.getTimer());
+
+        db.insert("table_Pergunta","", valores);
+        Log.d("BANCO", "Inserido com sucesso");
+
     }
 
 }
