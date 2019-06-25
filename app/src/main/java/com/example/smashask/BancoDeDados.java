@@ -47,6 +47,32 @@ public class BancoDeDados extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public ArrayList<Pergunta> buscaTodasPerguntasCriadas(){
+        ArrayList<Pergunta> perguntas = new ArrayList<>();
+        Pergunta pergunta = new Pergunta();
+
+        Cursor c = db.query("table_Pergunta",null,null,null,null,null,null,null);
+
+        if (null != c) {
+            c.moveToFirst();
+            do {
+                pergunta.setPergunta(c.getString(c.getColumnIndex("pergunta_Texto")));
+                pergunta.setRespostaA(c.getString(c.getColumnIndex("resposta_A")));
+                pergunta.setRespostaB(c.getString(c.getColumnIndex("resposta_B")));
+                pergunta.setRespostaC(c.getString(c.getColumnIndex("resposta_C")));
+                pergunta.setRespostaD(c.getString(c.getColumnIndex("resposta_D")));
+                pergunta.setRespostaCorreta(c.getString(c.getColumnIndex("resposta_Correta")));
+                pergunta.setTempoTeste(c.getInt(c.getColumnIndex("tempo_teste")));
+                pergunta.setTimer(c.getInt(c.getColumnIndex("timer")));
+
+                perguntas.add(pergunta);
+            }while(c.moveToNext());
+        }
+        db.close();
+
+        return  perguntas;
+    }
+
     public Pergunta buscaPergunta(String id){
         Pergunta pergunta = new Pergunta();
 
@@ -85,7 +111,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.close();
 
         return tamLista;
-    };
+    }
 
     public String buscaCorreta(int idLista){
         String respostaCorreta = new String();
@@ -101,7 +127,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.close();
 
         return respostaCorreta;
-    };
+    }
 
     public Pergunta buscaPerguntaNaLista(int idLista, int numeroPergunta){
         Pergunta pergunta = new Pergunta();
@@ -137,6 +163,34 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.insert("table_Pergunta","", valores);
         Log.d("BANCO", "Inserido com sucesso");
 
+    }
+
+    public void inserirLista(Lista l){
+        ContentValues valores = new ContentValues();
+
+        valores.put("Id_Pergunta_1", l.getId_Pergunta_1());
+        valores.put("Id_Pergunta_2", l.getId_Pergunta_2());
+        valores.put("Id_Pergunta_3", l.getId_Pergunta_3());
+        valores.put("Id_Pergunta_4", l.getId_Pergunta_4());
+        valores.put("Id_Pergunta_5", l.getId_Pergunta_5());
+        valores.put("Id_Pergunta_6", l.getId_Pergunta_6());
+        valores.put("Id_Pergunta_7", l.getId_Pergunta_7());
+        valores.put("Id_Pergunta_8", l.getId_Pergunta_8());
+        valores.put("Id_Pergunta_9", l.getId_Pergunta_9());
+        valores.put("Id_Pergunta_10", l.getId_Pergunta_10());
+        valores.put("Id_Pergunta_11", l.getId_Pergunta_11());
+        valores.put("Id_Pergunta_12", l.getId_Pergunta_12());
+        valores.put("Id_Pergunta_13", l.getId_Pergunta_13());
+        valores.put("Id_Pergunta_14", l.getId_Pergunta_14());
+        valores.put("Id_Pergunta_15", l.getId_Pergunta_15());
+        valores.put("Id_Pergunta_16", l.getId_Pergunta_16());
+        valores.put("Id_Pergunta_17", l.getId_Pergunta_17());
+        valores.put("Id_Pergunta_18", l.getId_Pergunta_18());
+        valores.put("Id_Pergunta_19", l.getId_Pergunta_19());
+        valores.put("Id_Pergunta_20", l.getId_Pergunta_20());
+        valores.put("qtd_Perguntas", l.getQtd_Perguntas());
+
+        db.insert("table_Lista","", valores);
     }
 
 }

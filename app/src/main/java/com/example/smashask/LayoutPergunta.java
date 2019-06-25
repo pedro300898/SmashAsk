@@ -52,13 +52,13 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
         textD =(TextView) findViewById(R.id.textViewRespostaD);
         textD.setText(pergunta.getRespostaD());
 
-        btnA.findViewById(R.id.buttonA);
+        btnA = (Button) findViewById(R.id.buttonA);
         btnA.setOnClickListener(this);
-        btnB.findViewById(R.id.buttonB);
+        btnB = (Button) findViewById(R.id.buttonB);
         btnB.setOnClickListener(this);
-        btnC.findViewById(R.id.buttonC);
+        btnC = (Button) findViewById(R.id.buttonC);
         btnC.setOnClickListener(this);
-        btnD.findViewById(R.id.buttonD);
+        btnD = (Button) findViewById(R.id.buttonD);
         btnD.setOnClickListener(this);
     }
 
