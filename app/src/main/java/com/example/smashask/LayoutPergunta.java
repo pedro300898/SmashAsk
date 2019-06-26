@@ -1,5 +1,6 @@
 package com.example.smashask;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
     private Pergunta pergunta;
     private BancoDeDados bd;
     private SharedPreferences shared;
-    private String s1;
+    private String s1, correta;
     private int idLista, numeroDaPergunta, tamanhoLista;
     private TextView t1, textNP, textP, textA, textB, textC, textD;
     private Button btnA, btnB, btnC, btnD;
@@ -60,26 +61,149 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
         btnC.setOnClickListener(this);
         btnD = (Button) findViewById(R.id.buttonD);
         btnD.setOnClickListener(this);
+
+        correta = pergunta.getRespostaCorreta();
     }
 
     @Override
     public void onClick(View v) {
+        shared = getSharedPreferences(getString(R.string.pref_Key), 0);
+        SharedPreferences.Editor edit = shared.edit();
         if(v == btnA){
-            //verificar correta
-            //passar para proxima tela verificando se a lista acabou ou n
-            numeroDaPergunta++;
+            if(btnA.getText().equals(correta)){
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta correta
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta correta
+                }
+
+
+            }else{
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta errado
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta errado
+                }
+
+            }
         }
         if(v == btnB){
+            if(btnB.getText().equals(correta)){
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
 
-            numeroDaPergunta++;
+                    //camputa que esta correta
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta correta
+                }
+
+
+            }else{
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta errado
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta errado
+                }
+
+            }
         }
         if(v == btnC){
+            if(btnC.getText().equals(correta)){
 
-            numeroDaPergunta++;
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta correta
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta correta
+                }
+
+
+            }else{
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta errado
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta errado
+                }
+            }
         }
         if(v == btnD){
+            if(btnD.getText().equals(correta)){
 
-            numeroDaPergunta++;
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta correta
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta correta
+                }
+
+
+            }else{
+                if(tamanhoLista != numeroDaPergunta){
+                    edit.putInt("NP", (numeroDaPergunta++));
+                    edit.commit();
+                    Intent i = new Intent(this, LayoutPergunta.class);
+                    startActivity(i);
+
+                    //camputa que esta errado
+
+                    this.finish();
+                }else{
+                    //termina a lista
+                    //camputa que esta errado
+                }
+            }
         }
     }
 }
