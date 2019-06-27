@@ -48,7 +48,6 @@ public class CodigoPerguntas extends AppCompatActivity implements View.OnClickLi
             edit.putInt("IdLista",idLista);
             Intent i = new Intent(this, LayoutPergunta.class);
             startActivity(i);
-            this.finish();
         }
     }
 
