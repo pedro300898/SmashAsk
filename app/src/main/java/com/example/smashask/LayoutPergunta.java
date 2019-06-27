@@ -39,7 +39,6 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
         tamanhoLista = bd.buscaTamLista(idLista);
         pergunta = bd.buscaPerguntaNaLista(idLista, numeroDaPergunta);
 
-
         textNP =(TextView) findViewById(R.id.textViewNumeroPergunta);
         textNP.setText("Pergunta"+numeroDaPergunta+"/"+tamanhoLista);
         textP =(TextView) findViewById(R.id.textViewPergunta);
@@ -68,7 +67,10 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         shared = getSharedPreferences(getString(R.string.pref_Key), 0);
+        Usuario u;
         SharedPreferences.Editor edit = shared.edit();
+        bd = new BancoDeDados((getApplicationContext()));
+        u = bd.buscaUsuario();
         if(v == btnA){
             if(btnA.getText().equals(correta)){
                 if(tamanhoLista != numeroDaPergunta){
@@ -76,13 +78,16 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
-
-                    //camputa que esta correta
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    //camputa que esta correta na lista
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta correta
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
             }else{
                 if(tamanhoLista != numeroDaPergunta){
@@ -90,15 +95,18 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta errado
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta errado
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
-
             }
         }
         if(v == btnB){
@@ -108,13 +116,17 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta correta
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta correta
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
             }else{
                 if(tamanhoLista != numeroDaPergunta){
@@ -122,15 +134,18 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta errado
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta errado
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
-
             }
         }
         if(v == btnC){
@@ -141,29 +156,35 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta correta
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta correta
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
-
-
             }else{
                 if(tamanhoLista != numeroDaPergunta){
                     edit.putInt("NP", (numeroDaPergunta++));
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta errado
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta errado
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
             }
         }
@@ -175,29 +196,35 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta correta
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta correta
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
-
-
             }else{
                 if(tamanhoLista != numeroDaPergunta){
                     edit.putInt("NP", (numeroDaPergunta++));
                     edit.commit();
                     Intent i = new Intent(this, LayoutPergunta.class);
                     startActivity(i);
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setQtd_Acerto((u.getQtd_Acerto()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
 
                     //camputa que esta errado
 
                     this.finish();
                 }else{
                     //termina a lista
-                    //camputa que esta errado
+                    u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
+                    u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 }
             }
         }

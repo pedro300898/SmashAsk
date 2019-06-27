@@ -148,11 +148,9 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         return pergunta;
     }
-    public Usuario buscaUsuario(String id){
+    public Usuario buscaUsuario(){
         Usuario usuario = new Usuario();
-        String selection =  "lista_Id" + " = ?";
-        String[] selectionArgs = {id};
-        Cursor c = db.query("table_Usuario",null,selection,selectionArgs,null,null,null,null);
+        Cursor c = db.query("table_Usuario",null, null,null,null,null,null,null);
         if (null != c) {
             c.moveToFirst();
               usuario.setUsuario_Id(c.getString(c.getColumnIndex("usuario_Id")));
