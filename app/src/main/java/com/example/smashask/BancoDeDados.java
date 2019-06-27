@@ -228,4 +228,19 @@ public class BancoDeDados extends SQLiteOpenHelper {
         valores.put("qtd_Respondidas",u.getQtd_Respondidas());
         db.insert("table_usuario","", valores);
     }
+
+    public void upadateUsuario(Usuario u){
+        String where = "id=?";
+        String[] whereArgs = new String[] {String.valueOf(u.getUsuario_Id())};
+
+        ContentValues valores = new ContentValues();
+        valores.put("Usuario_Id", u.getUsuario_Id());
+        valores.put("Usuario_nome", u.getUsuario_nome());
+        valores.put("tempo_Acumulado", u.getTempo_Acumulado());
+        valores.put("Smash_Ratio",u.getSmash_Ratio());
+        valores.put("qtd_Acerto", u.getQtd_Acerto());
+        valores.put("qtd_Respondidas",u.getQtd_Respondidas());
+
+        db.update("table_usuario", valores, where, whereArgs);
+    }
 }

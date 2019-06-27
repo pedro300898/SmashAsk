@@ -81,6 +81,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     //camputa que esta correta na lista
 
                     this.finish();
@@ -89,6 +90,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }else{
@@ -99,7 +101,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     startActivity(i);
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta errado
 
                     this.finish();
@@ -121,7 +123,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta correta
 
                     this.finish();
@@ -130,6 +132,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }else{
@@ -140,7 +143,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     startActivity(i);
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta errado
 
                     this.finish();
@@ -148,6 +151,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     //termina a lista
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }
@@ -162,7 +166,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta correta
 
                     this.finish();
@@ -171,6 +175,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }else{
@@ -181,7 +186,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     startActivity(i);
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta errado
 
                     this.finish();
@@ -189,6 +194,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     //termina a lista
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                 }
             }
         }
@@ -202,7 +208,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta correta
 
                     this.finish();
@@ -211,6 +217,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setQtd_Acerto((u.getQtd_Acerto()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }else{
@@ -221,7 +228,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     startActivity(i);
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
-
+                    bd.upadateUsuario(u);
                     //camputa que esta errado
 
                     this.finish();
@@ -229,6 +236,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     //termina a lista
                     u.setQtd_Respondidas((u.getQtd_Respondidas()+1));
                     u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
+                    bd.upadateUsuario(u);
                     this.finish();
                 }
             }
