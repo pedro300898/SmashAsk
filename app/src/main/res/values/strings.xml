@@ -35,6 +35,10 @@
     <string name="salvarP">Salvar pergunta</string>
     <string name="botaoEntrarCodigo">Verificar Código</string>
     <string name="setCorreta">Selecione a resposta correta:</string>
+    <string name="tamlista">Insira o tamanho de sua lista com até 20 perguntas</string>
+    <string name="novaLista">Nova Lista:</string>
+    <string name="criarNovaLista">Criar nova lista</string>
+    <string name="selecionePerguntas">Selecione as perguntas que deseja inserir na lista:</string>
 
 
 </resources>
