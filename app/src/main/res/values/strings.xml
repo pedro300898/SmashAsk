@@ -38,6 +38,7 @@
     <string name="tamlista">Insira o tamanho de sua lista com até 20 perguntas</string>
     <string name="novaLista">Nova Lista:</string>
     <string name="criarNovaLista">Criar nova lista</string>
+    <string name="criarNovaPergunta">Criar nova pergunta</string>
     <string name="selecionePerguntas">Selecione as perguntas que deseja inserir na lista:</string>
 
 
