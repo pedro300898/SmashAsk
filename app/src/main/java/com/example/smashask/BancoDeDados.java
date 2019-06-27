@@ -148,6 +148,23 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         return pergunta;
     }
+    public Usuario buscaUsuario(String id){
+        Usuario usuario = new Usuario();
+        String selection =  "lista_Id" + " = ?";
+        String[] selectionArgs = {id};
+        Cursor c = db.query("table_Usuario",null,selection,selectionArgs,null,null,null,null);
+        if (null != c) {
+            c.moveToFirst();
+              usuario.setUsuario_Id(c.getString(c.getColumnIndex("usuario_Id")));
+              usuario.setUsuario_nome(c.getString(c.getColumnIndex("usuario_nome")));
+              usuario.setTempo_Acumulado(c.getString(c.getColumnIndex("tempo_Acumulado")));
+              usuario.setSmash_Ratio(c.getFloat(c.getColumnIndex("Smash_Ratio")));
+              usuario.setQtd_Acerto(c.getInt(c.getColumnIndex("qtd_Acerto")));
+              usuario.setQtd_Respondidas(c.getInt(c.getColumnIndex("qtd_Respondidas")));
+        }
+        db.close();
+        return usuario;
+    }
 
 
     public void inserirPerguntaBD(Pergunta p){
@@ -213,5 +230,4 @@ public class BancoDeDados extends SQLiteOpenHelper {
         valores.put("qtd_Respondidas",u.getQtd_Respondidas());
         db.insert("table_usuario","", valores);
     }
-
 }
