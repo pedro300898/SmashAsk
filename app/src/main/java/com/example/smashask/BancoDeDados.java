@@ -193,4 +193,20 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.insert("table_Lista","", valores);
     }
 
+    public void insereEstatistica(Estatistica e){
+        ContentValues valores = new ContentValues();
+        valores.put("Qtd_Acerto",e.getQtd_Acerto());
+        valores.put("Tipo_Teste", e.getTipo_Teste());
+        valores.put("Email_usuario",e.getEmail_usuario());
+        valores.put("Tempo_Gasto", e.getTempo_Gasto());
+        db.insert("table_estatistica","", valores);
+    }
+
+    public  void insereUsuario(Usuario u){
+        ContentValues valores = new ContentValues();
+        valores.put("Usuario_Id", u.getUsuario_Id());
+        valores.put("Usuario_nome", u.getUsuario_nome());
+        db.insert("table_usuario","", valores);
+    }
+
 }

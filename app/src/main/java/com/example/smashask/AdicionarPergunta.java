@@ -55,5 +55,4 @@ public class AdicionarPergunta extends AppCompatActivity implements View.OnClick
         p.setRespostaCorreta(respostaCorreta);
         bd.inserirPerguntaBD(p);
     }
-
 }
