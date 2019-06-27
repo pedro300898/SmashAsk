@@ -84,8 +84,6 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     //termina a lista
                     //camputa que esta correta
                 }
-
-
             }else{
                 if(tamanhoLista != numeroDaPergunta){
                     edit.putInt("NP", (numeroDaPergunta++));
@@ -118,8 +116,6 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                     //termina a lista
                     //camputa que esta correta
                 }
-
-
             }else{
                 if(tamanhoLista != numeroDaPergunta){
                     edit.putInt("NP", (numeroDaPergunta++));

@@ -23,7 +23,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table if not exists table_usuario (usuario_Id text primary key, usuario_nome text not null)");
+        db.execSQL("create table if not exists table_usuario (usuario_Id text primary key, usuario_nome text not null, tempo_Acumulado text not null, Smash_Ratio float not null, qtd_Acerto integer not null, qtd_Respondidas integer not null)");
 
         db.execSQL("create table if not exists table_Pergunta (pergunta_Id integer primary key autoincrement, pergunta_Texto text not null, resposta_A text not null, resposta_B text not null, resposta_C text not null," +
                 " resposta_D text not null, resposta_Correta text not null, tempo_teste integer not null, timer integer not null)");
@@ -149,6 +149,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         return pergunta;
     }
 
+
     public void inserirPerguntaBD(Pergunta p){
         Log.d("BANCO", "Método inserir invocado");
         ContentValues valores = new ContentValues();
@@ -206,6 +207,10 @@ public class BancoDeDados extends SQLiteOpenHelper {
         ContentValues valores = new ContentValues();
         valores.put("Usuario_Id", u.getUsuario_Id());
         valores.put("Usuario_nome", u.getUsuario_nome());
+        valores.put("tempo_Acumulado", u.getTempo_Acumulado());
+        valores.put("Smash_Ratio",u.getSmash_Ratio());
+        valores.put("qtd_Acerto", u.getQtd_Acerto());
+        valores.put("qtd_Respondidas",u.getQtd_Respondidas());
         db.insert("table_usuario","", valores);
     }
 
