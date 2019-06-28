@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn1.findViewById(R.id.BtnSmash);
+        btn1 = (Button) findViewById(R.id.BtnSmash);
         btn1.setOnClickListener(this);
 
     }

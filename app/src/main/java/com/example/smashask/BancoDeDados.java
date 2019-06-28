@@ -49,19 +49,20 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     public ArrayList<Pergunta> buscaTodasPerguntasCriadas(){
         ArrayList<Pergunta> perguntas = new ArrayList<>();
-        Pergunta pergunta = new Pergunta();
 
         Cursor c = db.query("table_Pergunta",null,null,null,null,null,null,null);
 
         if (null != c) {
             c.moveToFirst();
             do {
+                Pergunta pergunta = new Pergunta();
                 pergunta.setId(c.getInt(c.getColumnIndex("pergunta_Id")));
                 pergunta.setPergunta(c.getString(c.getColumnIndex("pergunta_Texto")));
                 perguntas.add(pergunta);
+                Log.d("BANCO", pergunta.getPergunta());
             }while(c.moveToNext());
         }
-        db.close();
+        //db.close();
 
         return perguntas;
     }
@@ -130,13 +131,15 @@ public class BancoDeDados extends SQLiteOpenHelper {
         String selection =  "lista_Id" + " = ?";
         String[] selectionArgs = {String.valueOf(idLista)};
 
-        Cursor c = db.query("table_Lista",null,selection,selectionArgs,null,null,null,null);
+        Cursor c = db.query("table_Lista",null, selection, selectionArgs,null,null,null,null);
 
         if (null != c) {
+            Log.d("BANCO", "entrou null c");
             c.moveToFirst();
             idPergunta = c.getString(c.getColumnIndex(columns));
             pergunta = buscaPergunta(idPergunta);
         }
+        Log.d("BANCO", "saiu");
         db.close();
 
         return pergunta;
@@ -161,20 +164,23 @@ public class BancoDeDados extends SQLiteOpenHelper {
     public void inserirPerguntaBD(Pergunta p){
         Log.d("BANCO", "Método inserir invocado");
         ContentValues valores = new ContentValues();
+        Log.d("BANCO", "Passou contentValues");
         valores.put("pergunta_Texto", p.getPergunta());
         valores.put("resposta_A", p.getRespostaA());
         valores.put("resposta_B", p.getRespostaB());
         valores.put("resposta_C", p.getRespostaC());
         valores.put("resposta_D", p.getRespostaD());
+        valores.put("resposta_Correta", p.getRespostaCorreta());
         valores.put("tempo_teste", 0);
         valores.put("timer", p.getTimer());
-
+        Log.d("BANCO", "Passou dados pergunta");
         db.insert("table_Pergunta","", valores);
         Log.d("BANCO", "Inserido com sucesso");
 
     }
 
     public void inserirLista(Lista l){
+        Log.d("BANCO", "Entrou no inserir lista");
         ContentValues valores = new ContentValues();
 
         valores.put("Id_Pergunta_1", l.getId_Pergunta_1());

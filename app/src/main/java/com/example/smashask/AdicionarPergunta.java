@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class AdicionarPergunta extends AppCompatActivity implements View.OnClickListener {
     private EditText pergunta, questaoA, questaoB, questaoC, questaoD, temporizador;
-    private RadioButton a, b, c, d;
+    private RadioButton radio1, radio2, radio3, radio4;
+    private RadioGroup grupo;
     private Button salvarPergunta;
     private BancoDeDados bd;
     private String respostaCorreta;
@@ -26,10 +28,29 @@ public class AdicionarPergunta extends AppCompatActivity implements View.OnClick
         questaoD =(EditText) findViewById(R.id.editRespostaD);
         temporizador =(EditText) findViewById(R.id.editTimer);
 
-        a = (RadioButton) findViewById(R.id.radioButtonA);
-        b = (RadioButton) findViewById(R.id.radioButtonB);
-        c = (RadioButton) findViewById(R.id.radioButtonC);
-        d = (RadioButton) findViewById(R.id.radioButtonD);
+
+        grupo = (RadioGroup) findViewById(R.id.grupoRadio);
+        radio1 =(RadioButton) findViewById(R.id.radioButtonA);
+        radio2 =(RadioButton) findViewById(R.id.radioButtonB);
+        radio3 =(RadioButton) findViewById(R.id.radioButtonC);
+        radio4 =(RadioButton) findViewById(R.id.radioButtonD);
+        grupo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId== R.id.radioButtonA){
+                    respostaCorreta = "A)";
+                }
+                if (checkedId== R.id.radioButtonB){
+                    respostaCorreta = "B)";
+                }
+                if (checkedId== R.id.radioButtonC){
+                    respostaCorreta = "C)";
+                }
+                if (checkedId== R.id.radioButtonD){
+                    respostaCorreta = "D)";
+                }
+            }
+        });
 
         salvarPergunta = (Button) findViewById(R.id.buttonSalvarP);
         salvarPergunta.setOnClickListener(this);
@@ -39,6 +60,7 @@ public class AdicionarPergunta extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         if (v == salvarPergunta) {
             cadastarBD();
+            this.finish();
         }
     }
 

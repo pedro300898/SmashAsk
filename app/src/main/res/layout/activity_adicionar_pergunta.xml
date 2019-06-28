@@ -14,6 +14,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="@string/Ipergunta"
         tools:text="@string/Ipergunta" />
 
     <LinearLayout
@@ -30,6 +31,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@string/respostaA"
             tools:text="@string/respostaA" />
 
     </LinearLayout>
@@ -48,6 +50,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@string/respostaB"
             tools:text="@string/respostaB" />
     </LinearLayout>
 
@@ -65,6 +68,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@string/respostaC"
             tools:text="@string/respostaC" />
     </LinearLayout>
 
@@ -82,6 +86,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@string/respostaD"
             tools:text="@string/respostaD" />
     </LinearLayout>
 
@@ -123,8 +128,9 @@
             android:layout_weight="1"
             android:text="@string/setCorreta" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/grupoRadio"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -155,7 +161,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/botaoD" />
-        </LinearLayout>
+
+        </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout

@@ -31,7 +31,7 @@ public class AdicionarLista extends AppCompatActivity implements View.OnClickLis
         shared = getSharedPreferences("dados", 0);
         bd = new BancoDeDados((getApplicationContext()));
 
-        tamanho = (EditText) findViewById(R.id.editTamlista);
+        //tamanho = (EditText) findViewById(R.id.editTamlista);
         btnCriar = (Button) findViewById(R.id.buttonCriarLista);
         btnCriar.setOnClickListener(this);
         lay = (LinearLayout) findViewById(R.id.linearPerguntas);
@@ -146,6 +146,7 @@ public class AdicionarLista extends AppCompatActivity implements View.OnClickLis
             }
             lista.setQtd_Perguntas(nPerguntas);
             bd.inserirLista(lista);
+            this.finish();
         }
     }
 }

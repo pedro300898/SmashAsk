@@ -38,7 +38,7 @@ public class CodigoPerguntas extends AppCompatActivity implements View.OnClickLi
 
         shared = getSharedPreferences(getString(R.string.pref_Key), 0);
         SharedPreferences.Editor edit = shared.edit();
-        edit.putString("Modo", textStudy.getText().toString());
+        edit.putString("Modo", "Smash Study");
         edit.putInt("NP", 1);
         edit.commit();
     }
@@ -46,10 +46,11 @@ public class CodigoPerguntas extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v == btn1) {
-            shared = getSharedPreferences(getString(R.string.pref_Key), 0);
+            shared = getSharedPreferences("dados", 0);
             SharedPreferences.Editor edit = shared.edit();
             int idLista = Integer.parseInt(editTextCodgoL.getText().toString());
-            edit.putInt("IdLista",idLista);
+            edit.putInt("IdLista", idLista);
+            edit.commit();
             Intent i = new Intent(this, LayoutPergunta.class);
             startActivity(i);
         }
@@ -71,12 +72,12 @@ public class CodigoPerguntas extends AppCompatActivity implements View.OnClickLi
         if(buttonView == sw1){
             if(isChecked){
                 //Entar usando modo Test
-                edit.putString("Modo", textTest.getText().toString());
+                edit.putString("Modo", "Smash Test");
                 edit.putInt("NP", 1);
                 edit.commit();
             }else{
                 //Entrar usando modo estudo
-                edit.putString("Modo", textStudy.getText().toString());
+                edit.putString("Modo", "Smash Study");
                 edit.putInt("NP", 1);
                 edit.commit();
             }
