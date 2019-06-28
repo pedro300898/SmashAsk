@@ -146,12 +146,12 @@ public class BancoDeDados extends SQLiteOpenHelper {
         Cursor c = db.query("table_Usuario",null, null,null,null,null,null,null);
         if (null != c) {
             c.moveToFirst();
-              usuario.setUsuario_Id(c.getString(c.getColumnIndex("usuario_Id")));
-              usuario.setUsuario_nome(c.getString(c.getColumnIndex("usuario_nome")));
-              usuario.setTempo_Acumulado(c.getString(c.getColumnIndex("tempo_Acumulado")));
-              usuario.setSmash_Ratio(c.getFloat(c.getColumnIndex("Smash_Ratio")));
-              usuario.setQtd_Acerto(c.getInt(c.getColumnIndex("qtd_Acerto")));
-              usuario.setQtd_Respondidas(c.getInt(c.getColumnIndex("qtd_Respondidas")));
+            usuario.setUsuario_Id(c.getString(c.getColumnIndex("usuario_Id")));
+            usuario.setUsuario_nome(c.getString(c.getColumnIndex("usuario_nome")));
+            usuario.setTempo_Acumulado(c.getString(c.getColumnIndex("tempo_Acumulado")));
+            usuario.setSmash_Ratio(c.getFloat(c.getColumnIndex("Smash_Ratio")));
+            usuario.setQtd_Acerto(c.getInt(c.getColumnIndex("qtd_Acerto")));
+            usuario.setQtd_Respondidas(c.getInt(c.getColumnIndex("qtd_Respondidas")));
         }
         db.close();
         return usuario;
