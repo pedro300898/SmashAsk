@@ -56,21 +56,14 @@ public class BancoDeDados extends SQLiteOpenHelper {
         if (null != c) {
             c.moveToFirst();
             do {
+                pergunta.setId(c.getInt(c.getColumnIndex("pergunta_Id")));
                 pergunta.setPergunta(c.getString(c.getColumnIndex("pergunta_Texto")));
-                pergunta.setRespostaA(c.getString(c.getColumnIndex("resposta_A")));
-                pergunta.setRespostaB(c.getString(c.getColumnIndex("resposta_B")));
-                pergunta.setRespostaC(c.getString(c.getColumnIndex("resposta_C")));
-                pergunta.setRespostaD(c.getString(c.getColumnIndex("resposta_D")));
-                pergunta.setRespostaCorreta(c.getString(c.getColumnIndex("resposta_Correta")));
-                pergunta.setTempoTeste(c.getInt(c.getColumnIndex("tempo_teste")));
-                pergunta.setTimer(c.getInt(c.getColumnIndex("timer")));
-
                 perguntas.add(pergunta);
             }while(c.moveToNext());
         }
         db.close();
 
-        return  perguntas;
+        return perguntas;
     }
 
     public Pergunta buscaPergunta(String id){
