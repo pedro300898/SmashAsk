@@ -9,6 +9,9 @@
     <string name="Smash">SMASH</string>
     <string name="pref_Key">dados</string>
 
+    <string name="telaCriarUsuario">Criar Usuário</string>
+    <string name="nome">Nome:</string>
+    <string name="salvar">Salvar</string>
 
     <string name="insertCodgo">Códgo da Lista</string>
     <string name="aleatoria">Lista Aleatoria</string>
@@ -19,6 +22,7 @@
     <string name="perguntaN">Pergunta 1/25</string>
     <string name="timer">60s</string>
 
+    <string name="btnCriarUsuario">Criar Usuário</string>
 
     <string name="pergunta">Para assegurar a autenticidade das interações entre seu aplicativo e o Facebook, você deverá nos enviar o hash de chave para Android do seu ambiente de desenvolvimento. Se o seu aplicativo já tiver sido publicado, você deverá adicionar também seu hash de chave de lançamento. </string>
     <string name="botaoA">A)</string>

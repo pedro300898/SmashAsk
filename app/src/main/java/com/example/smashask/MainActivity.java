@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btn1;
+    Button btn1, btnCriar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn1 = (Button) findViewById(R.id.BtnSmash);
         btn1.setOnClickListener(this);
 
+        btnCriar = (Button) findViewById(R.id.btnCriarUsuario);
+        btnCriar.setOnClickListener(this);
     }
 
     @Override
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
             this.finish();
         }
-
+        if (v == btnCriar){
+            Intent i = new Intent(this, CriarUsuario.class);
+            startActivity(i);
+            this.finish();
+        }
     }
 }

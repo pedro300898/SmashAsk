@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
     private SharedPreferences shared;
     private String s1, correta;
     private int idLista, numeroDaPergunta, tamanhoLista;
-    private TextView t1, textNP, textP, textA, textB, textC, textD;
+    private TextView t1, textNP, textP, textA, textB, textC, textD, textRatio;
     private Button btnA, btnB, btnC, btnD;
 
     @Override
@@ -52,6 +53,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
         textD =(TextView) findViewById(R.id.textViewRespostaD);
         textD.setText(pergunta.getRespostaD());
 
+
         btnA = (Button) findViewById(R.id.buttonA);
         btnA.setOnClickListener(this);
         btnB = (Button) findViewById(R.id.buttonB);
@@ -62,10 +64,12 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
         btnD.setOnClickListener(this);
 
         correta = pergunta.getRespostaCorreta();
+
     }
 
     @Override
     public void onClick(View v) {
+        Log.d("pergunta", "entrou no correta");
         shared = getSharedPreferences(getString(R.string.pref_Key), 0);
         Usuario u;
         SharedPreferences.Editor edit = shared.edit();
@@ -77,6 +81,7 @@ public class LayoutPergunta extends AppCompatActivity implements View.OnClickLis
                 u.setQtd_Acerto((u.getQtd_Acerto()+1));
                 u.setSmash_Ratio((u.getQtd_Acerto()/u.getQtd_Respondidas()));
                 bd.upadateUsuario(u);
+
                 //camputa que esta correta na lista
                 if(tamanhoLista != numeroDaPergunta){
                     edit.putInt("NP", (numeroDaPergunta+1));

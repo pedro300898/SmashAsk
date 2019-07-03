@@ -62,7 +62,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
                 Log.d("BANCO", pergunta.getPergunta());
             }while(c.moveToNext());
         }
-        //db.close();
+
 
         return perguntas;
     }
@@ -70,10 +70,8 @@ public class BancoDeDados extends SQLiteOpenHelper {
     public Pergunta buscaPergunta(String id){
         Pergunta pergunta = new Pergunta();
 
-        String selection =  "pergunta_Id" + " = ?";
-        String[] selectionArgs = {String.valueOf(id)};
+        Cursor c = db.rawQuery("SELECT * FROM table_Pergunta WHERE pergunta_Id = " + id, null);
 
-        Cursor c = db.query("table_Pergunta",null,selection,selectionArgs,null,null,null,null);
 
         if (null != c) {
             c.moveToFirst();
@@ -87,38 +85,32 @@ public class BancoDeDados extends SQLiteOpenHelper {
             pergunta.setTempoTeste(c.getInt(c.getColumnIndex("tempo_teste")));
             pergunta.setTimer(c.getInt(c.getColumnIndex("timer")));
         }
-        db.close();
+
 
         return pergunta;
     }
     public int buscaTamLista(int idLista){
         int tamLista =0;
-        String selection =  "lista_Id" + " = ?";
-        String[] selectionArgs = {String.valueOf(idLista)};
+        Cursor c = db.rawQuery("SELECT * FROM table_Lista WHERE lista_Id = " + idLista, null);
 
-        Cursor c = db.query("table_Lista",null,selection,selectionArgs,null,null,null,null);
 
         if (null != c) {
             c.moveToFirst();
             tamLista = c.getInt(c.getColumnIndex("qtd_Perguntas"));
         }
-        db.close();
+
 
         return tamLista;
     }
 
     public String buscaCorreta(int idLista){
         String respostaCorreta = new String();
-        String selection =  "pergunta_Id" + " = ?";
-        String[] selectionArgs = {String.valueOf(idLista)};
-
-        Cursor c = db.query("table_Pergunta",null,selection,selectionArgs,null,null,null,null);
+        Cursor c = db.rawQuery("SELECT * FROM table_Pergunta WHERE pergunta_Id = " + idLista, null);
 
         if (null != c) {
             c.moveToFirst();
             respostaCorreta = c.getString(c.getColumnIndex("resposta_Correta"));
         }
-        db.close();
 
         return respostaCorreta;
     }
@@ -128,10 +120,8 @@ public class BancoDeDados extends SQLiteOpenHelper {
         String idPergunta = new String();
 
         String columns = "Id_Pergunta_"+numeroPergunta;
-        String selection =  "lista_Id" + " = ?";
-        String[] selectionArgs = {String.valueOf(idLista)};
+        Cursor c = db.rawQuery("SELECT * FROM table_Lista WHERE lista_Id = " + idLista, null);
 
-        Cursor c = db.query("table_Lista",null, selection, selectionArgs,null,null,null,null);
 
         if (null != c) {
             Log.d("BANCO", "entrou null c");
@@ -140,7 +130,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
             pergunta = buscaPergunta(idPergunta);
         }
         Log.d("BANCO", "saiu");
-        db.close();
+
 
         return pergunta;
     }
@@ -156,7 +146,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
             usuario.setQtd_Acerto(c.getInt(c.getColumnIndex("qtd_Acerto")));
             usuario.setQtd_Respondidas(c.getInt(c.getColumnIndex("qtd_Respondidas")));
         }
-        db.close();
+
         return usuario;
     }
 
@@ -219,8 +209,8 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     public  void insereUsuario(Usuario u){
         ContentValues valores = new ContentValues();
-        valores.put("Usuario_Id", u.getUsuario_Id());
-        valores.put("Usuario_nome", u.getUsuario_nome());
+        valores.put("usuario_Id", u.getUsuario_Id());
+        valores.put("usuario_nome", u.getUsuario_nome());
         valores.put("tempo_Acumulado", u.getTempo_Acumulado());
         valores.put("Smash_Ratio",u.getSmash_Ratio());
         valores.put("qtd_Acerto", u.getQtd_Acerto());
@@ -229,17 +219,17 @@ public class BancoDeDados extends SQLiteOpenHelper {
     }
 
     public void upadateUsuario(Usuario u){
-        String where = "id=?";
-        String[] whereArgs = new String[] {String.valueOf(u.getUsuario_Id())};
+        String[] whereArgs = new String[] {u.getUsuario_Id()};
+        Log.d("BANCO",u.getUsuario_Id());
 
         ContentValues valores = new ContentValues();
-        valores.put("Usuario_Id", u.getUsuario_Id());
-        valores.put("Usuario_nome", u.getUsuario_nome());
+        valores.put("usuario_Id", u.getUsuario_Id());
+        valores.put("usuario_nome", u.getUsuario_nome());
         valores.put("tempo_Acumulado", u.getTempo_Acumulado());
         valores.put("Smash_Ratio",u.getSmash_Ratio());
         valores.put("qtd_Acerto", u.getQtd_Acerto());
         valores.put("qtd_Respondidas",u.getQtd_Respondidas());
 
-        db.update("table_usuario", valores, where, whereArgs);
+        db.update("table_usuario", valores, "usuario_Id", null);
     }
 }

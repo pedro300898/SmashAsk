@@ -8,10 +8,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import static android.widget.TextView.BufferType.NORMAL;
+import static android.widget.TextView.BufferType.SPANNABLE;
 
 public class AdicionarLista extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,8 +44,12 @@ public class AdicionarLista extends AppCompatActivity implements View.OnClickLis
             CheckBox check = new CheckBox(this);
             check.setId(i);
             arrayCheck.add(check);
+            TextView aux = new TextView(this);
+            aux.setText(perguntas.get(i).getPergunta());
+            /*
             EditText aux = new EditText(this);
-            aux.setText(perguntas.get(i).getPergunta(), NORMAL);
+            aux.setText(perguntas.get(i).getPergunta(), SPANNABLE);
+            */
             layAux.addView(check);
             layAux.addView(aux);
             lay.addView(layAux);
